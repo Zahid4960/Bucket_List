@@ -10,11 +10,11 @@ class BucketsController < ApplicationController
 	end
 
 	def new
-		@bucket = Bucket.new
+		@bucket = current_user.buckets.build
 	end
 
 	def create
-		@bucket = Bucket.new(bucket_params)
+		@bucket = current_user.buckets.build(bucket_params)
 
 		if @bucket.save
 			redirect_to @bucket, notice: "Successfully created new Bucket"

@@ -1,5 +1,8 @@
 %h1= @bucket.title
 %p= @bucket.description
+Submitted by 
+= @bucket.user.email
+%br/
 
 = link_to "Back", root_path
 = link_to "Edit", edit_bucket_path
