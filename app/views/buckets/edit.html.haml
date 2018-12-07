@@ -2,6 +2,8 @@
 
   %h1 Edit Bucket
 
+  = image_tag @bucket.image.url(:medium)
+
   = render 'form'
 
   = link_to "Cancel", bucket_path

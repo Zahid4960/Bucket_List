@@ -42,7 +42,7 @@ class BucketsController < ApplicationController
 	private
 
 	def bucket_params
-		params.require(:bucket).permit(:title, :description)
+		params.require(:bucket).permit(:title, :description, :image)
 	end
 
 	def find_bucket
