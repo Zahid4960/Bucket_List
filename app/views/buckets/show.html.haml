@@ -1,0 +1,6 @@
+%h1= @bucket.title
+%p= @bucket.description
+
+= link_to "Back", root_path
+= link_to "Edit", edit_bucket_path
+= link_to "Delete",  bucket_path, method: :delete, data: { confirm: "Are you sure you want to delete the bucket?" }
