@@ -1,9 +1,12 @@
 .col-md-6.col-md-offset-3
+  .row
+    .panel.panel-default
+      .panel-heading
+        %h1 Edit Bucket
+      .panel-body  
+        %strong.center current Image
+        %br/
+        = image_tag @bucket.image.url(:medium)
+        %br/
+        = render 'form'
 
-  %h1 Edit Bucket
-
-  = image_tag @bucket.image.url(:medium)
-
-  = render 'form'
-
-  = link_to "Cancel", bucket_path

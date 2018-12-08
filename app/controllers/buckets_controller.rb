@@ -1,6 +1,7 @@
 class BucketsController < ApplicationController
 
-	before_action :find_bucket, only: [:show, :edit, :update, :destroy]
+	before_action :find_bucket, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
 		@buckets = Bucket.all.order("created_at DESC")
@@ -36,6 +37,15 @@ class BucketsController < ApplicationController
 	def destroy
 		@bucket.destroy
 		redirect_to root_path
+	end
+
+	def upvote
+		@bucket.upvote_by current_user
+		redirect_back fallback_location: root_path
+	end
+
+	def back
+		
 	end
 
 
