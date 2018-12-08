@@ -1,3 +1,9 @@
-- @buckets.each do |bucket|
-  = link_to (image_tag bucket.image.url(:medium)), bucket
-  %h2= link_to bucket.title, bucket
+#buckets.transitions-enabled
+  - @buckets.each do |bucket|
+    .box.panel.panel-default
+      = link_to (image_tag bucket.image.url), bucket
+      .panel-body
+        %h2= link_to bucket.title, bucket
+        %p.user
+        Submitted by
+        = bucket.user.email
