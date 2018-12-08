@@ -17,6 +17,6 @@
             = link_to like_bucket_path, method: :put, class: "btn btn-default" do
               %span.glyphicon.glyphicon-heart
                 = @bucket.get_upvotes.size
-            - if user_signed_in?    
+            - if current_user.id == @bucket.user_id 
               = link_to "Edit", edit_bucket_path, class: "btn btn-success"
               = link_to "Delete",  bucket_path, method: :delete, data: { confirm: "Are you sure you want to delete the bucket?" }, class: "btn btn-danger"
